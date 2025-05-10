@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estimation Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #f5f7fa; }
+        .container { max-width: 800px; margin: 30px auto; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 20px; }
+        .price { font-size: 28px; color: #27ae60; text-align: center; margin: 20px 0; font-weight: 700; }
+        .result-container { display: flex; gap: 30px; margin-top: 20px; }
+        .property-image { flex: 1; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .property-image img { width: 100%; height: auto; display: block; }
+        .details { flex: 1; }
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .feature { display: flex; align-items: center; margin-bottom: 10px; }
+        .feature-icon { margin-right: 10px; color: #3498db; font-size: 20px; width: 25px; }
+        .location-map { height: 150px; background: #ecf0f1; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 20px; color: #7f8c8d; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-search-dollar"></i> Estimation Result</h1>
+        <div class="price">{{ prediction_text }}</div>
+        
+        <div class="result-container">
+            <div class="property-image">
+                <img src="{{ url_for('serve_image', filename=property_image) }}" alt="Property Image" class="property-image">
+
+            </div>
+            
+            <div class="details">
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-bed feature-icon"></i>
+                        <span>{{ bedrooms }} Bedrooms</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bath feature-icon"></i>
+                        <span>{{ bathrooms }} Bathrooms</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-ruler-combined feature-icon"></i>
+                        <span>{{ area }} sq.ft</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-calendar-alt feature-icon"></i>
+                        <span>{{ age }} years old</span>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-map-marker-alt feature-icon"></i>
+                    <span>{{ location }} area</span>
+                </div>
+                
+                <div class="location-map">
+                    <i class="fas fa-map-marked-alt"></i> Map of {{ location }} area
+                </div>
+            </div>
+        </div>
+        
+        <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> New Estimation</a>
+    </div>
+</body>
+</html> 

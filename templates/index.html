@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Real Estate Estimator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #f5f7fa; }
+        .container { max-width: 600px; margin: 30px auto; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #34495e; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; }
+        button { background: #3498db; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #2980b9; }
+        .icon { margin-right: 10px; color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-home icon"></i> Property Price Estimator</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label><i class="fas fa-ruler-combined icon"></i> Area (sq ft)</label>
+                <input type="number" name="area" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-bed icon"></i> Bedrooms</label>
+                <input type="number" name="bedrooms" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-bath icon"></i> Bathrooms</label>
+                <input type="number" name="bathrooms" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-map-marker-alt icon"></i> Location</label>
+                <select name="location" required>
+                    <option value="Urban">Urban</option>
+                    <option value="Suburban">Suburban</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-calendar-alt icon"></i> Property Age (years)</label>
+                <input type="number" name="age" required>
+            </div>
+            <button type="submit"><i class="fas fa-calculator icon"></i> Estimate Price</button>
+        </form>
+    </div>
+</body>
+</html>
